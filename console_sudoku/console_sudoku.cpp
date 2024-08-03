@@ -21,6 +21,7 @@ void displayTable();
 
 int main()
 {
+
     initializeTable();
     displayTable();
 }
@@ -58,9 +59,21 @@ void initializeTable()
 void displayTable()
 {
     cout << "\n\n";
+    cout << "       ";
     for (int i = 0; i < n; i++)
     {
-        cout << "   ";
+        cout << i << "  ";
+    }
+    char horbar = '-';
+    cout << "\n       ";
+    for (int i = 0; i < 9; i++)
+    {
+        cout << horbar << "  ";
+    }
+    cout << "\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << "  " << i << "  | ";
         for (int j = 0; j < n; j++)
         {
             cout << table[i][j] << "  ";
