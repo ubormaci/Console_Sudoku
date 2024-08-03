@@ -3,24 +3,24 @@
 #include <string>
 #include <fstream>
 #include <random>
+#include <conio.h> 
 using namespace std;
 
 int table[9][9];
 int n = 9;
 // table[y][x] in terms of coordinates, or table[i][j] in terms of for loop structure
 
-// commands:
-// "new" - start a new game
-// "save" - save the current state of the board
-// "load" - load the last saved state
-// "help" - print out all other commands
-// "{x} {y} {value}" - place a value at x,y coordinates
-
 void initializeTable();
 void displayTable();
+void commandWait();
+void startGame();
+void saveGame();
+void loadGame();
 
 int main()
 {
+    srand((unsigned)time(NULL));
+
     /*
     for (int i = 32; i < 255; i++)
     {
@@ -28,6 +28,11 @@ int main()
     }
     */
 
+    startGame();
+}
+
+void startGame()
+{
     initializeTable();
     displayTable();
 }
@@ -36,8 +41,6 @@ void initializeTable()
 {
     // values taken from above
     // https://web.archive.org/web/20061126162713/http://www.csse.uwa.edu.au/~gordon/sudokumin.php
-
-    srand((unsigned)time(NULL));
 
     string line;
 
@@ -59,11 +62,15 @@ void initializeTable()
         }
     }
 
+    //cout << "\ncurrent table is " << chosen;
+
     return;
 }
 
 void displayTable()
 {
+    system("cls");
+
     cout << "\n\n";
     cout << "       ";
     for (int i = 0; i < n; i++)
@@ -86,4 +93,70 @@ void displayTable()
         }
         cout << "\n\n";
     }
+    
+    commandWait();
+}
+
+void commandWait()
+{
+    // commands:
+    // "new" - start a new game
+    // "save" - save the current state of the board
+    // "load" - load the last saved state
+    // "help" - print out all other commands
+    // "{x} {y} {value}" - place a value at x,y coordinates
+
+    cout << "\n>>> ";
+    //char get[100];
+    //cin.getline(get, 100);
+
+    string get;
+    getline(cin, get);
+
+    if (get == "exit")
+    {
+        return;
+    }
+
+    if (get == "new")
+    {
+        startGame();
+    }
+
+    if (get == "save")
+    {
+        saveGame();
+        cout << "Game saved";
+        commandWait();
+    }
+
+    if (get == "load")
+    {
+        loadGame();
+    }
+
+    if (get == "help")
+    {
+        cout << "commands:\nnew - start a new game\nsave - save the current state of the board";
+        cout << "\nload - load the last saved state\nhelp - print out all commands\n{x} {y} {value} - place a value at x, y coordinates";
+        commandWait();
+    }
+
+    int x = stoi(get.substr(0, 1));
+    int y = stoi(get.substr(2, 1));
+    int value = stoi(get.substr(4, 1));
+
+    table[y][x] = value;
+
+    displayTable();
+}
+
+void saveGame()
+{
+    // TODO
+}
+
+void loadGame()
+{
+    // TODO
 }
