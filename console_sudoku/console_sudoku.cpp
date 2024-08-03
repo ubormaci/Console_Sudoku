@@ -6,6 +6,7 @@
 using namespace std;
 
 int table[9][9];
+int n = 9;
 // table[y][x] in terms of coordinates, or table[i][j] in terms of for loop structure
 
 // commands:
@@ -20,7 +21,8 @@ void displayTable();
 
 int main()
 {
-        
+    initializeTable();
+    displayTable();
 }
 
 void initializeTable()
@@ -40,16 +42,29 @@ void initializeTable()
         getline(inread, line);
     }
 
-    for (int i = 0; i < 9; i++)
+    int iter = 0;
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < 9; j++)
+        for (int j = 0; j < n; j++)
         {
-
+            string curchar = line.substr(iter++, 1);
+            table[i][j] = stoi(curchar);
         }
     }
+
+    return;
 }
 
 void displayTable()
 {
-
+    cout << "\n\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << "   ";
+        for (int j = 0; j < n; j++)
+        {
+            cout << table[i][j] << "  ";
+        }
+        cout << "\n\n";
+    }
 }
