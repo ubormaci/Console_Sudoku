@@ -1,0 +1,1 @@
+Credits to Gordon Royle and The University of Western Australia for generating the 17-hint uniquely completable Sudoku puzzles, which I've used as a basis for the project. (https://web.archive.org/web/20061126162713/http://www.csse.uwa.edu.au/~gordon/sudokumin.php)
