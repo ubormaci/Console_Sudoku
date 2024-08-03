@@ -285,7 +285,7 @@ void stateCheck()
     }
 
     // if we've reached this point, it means that our sudoku is finished
-    cout << "\n\nCongratulations, you successfully completed this sudokue! :D";
+    cout << "\n\nCongratulations, you successfully completed this sudoku! :D";
     cout << "\nWrite 'new' if you'd like to play another, or 'exit' if you were satisfied.";
     cout << "\nThank you for playing!";
     commandWait();
