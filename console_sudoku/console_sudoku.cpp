@@ -22,7 +22,6 @@ void loadGame();
 void stateCheck();
 bool checkCollection();
 void resetCollection();
-void endGame();
 
 int main()
 {
@@ -88,7 +87,13 @@ void displayTable()
     {
         cout << i << "  ";
     }
-    char horbar = (char)196;
+
+    char horbar = (char)196; 
+    // in standard Windows-1252, the horizontal bar is at 151
+    // but for me, it is at 196
+    // but checking with PowerShell, it looks like *I* also have CP-1252
+    // so this is a bit weird and might cause it to function differently on other machines
+
     cout << "\n       ";
     for (int i = 0; i < 9; i++)
     {
