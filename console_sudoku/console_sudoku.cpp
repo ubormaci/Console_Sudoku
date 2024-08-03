@@ -80,7 +80,7 @@ void initializeTable()
 
 void displayTable()
 {
-    //system("cls");
+    system("cls");
 
     cout << "\n\n";
     cout << "       ";
