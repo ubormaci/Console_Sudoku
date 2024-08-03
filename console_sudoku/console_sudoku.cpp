@@ -21,6 +21,12 @@ void displayTable();
 
 int main()
 {
+    /*
+    for (int i = 32; i < 255; i++)
+    {
+        cout << "\nchar(" << i << ") = " << (char)i;
+    }
+    */
 
     initializeTable();
     displayTable();
@@ -64,7 +70,7 @@ void displayTable()
     {
         cout << i << "  ";
     }
-    char horbar = '-';
+    char horbar = (char)196;
     cout << "\n       ";
     for (int i = 0; i < 9; i++)
     {
