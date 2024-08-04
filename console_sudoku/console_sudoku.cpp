@@ -11,6 +11,8 @@ bool locked[9][9]; // locked values
 int n = 9;
 // table[y][x] in terms of coordinates, or table[i][j] in terms of for loop structure
 
+const string version = "1.0";
+
 bool nums[10];
 
 void initializeTable();
@@ -121,6 +123,7 @@ void commandWait()
     // "load" - load the last saved state
     // "help" - print out all other commands
     // "{x} {y} {value}" - place a value at x,y coordinates
+    // "creidits"
 
     cout << "\n>>> ";
     //char get[100];
@@ -150,6 +153,12 @@ void commandWait()
     {
         loadGame();
         displayTable();
+    }
+
+    if (get == "credits")
+    {
+        cout << "This is Console Sudoku v" << version << ", made by ubormaci.\nCredits to Gordon Royle and The University of Western Australia for generating the 17-hint uniquely completable Sudoku puzzles, which were used as a basis for the project.";
+        commandWait();
     }
 
     if (get == "help")
